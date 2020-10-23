@@ -46,7 +46,7 @@ class MailgunServiceProvider extends ServiceProvider
             $clientAdapter = $this->app->make('mailgun.client');
             $httpClientConfigurator = (new HttpClientConfigurator())
                 ->setHttpClient($clientAdapter)
-                ->setApiKey($config->get('mailgun.public_api_key'))
+                ->setApiKey($config->get('mailgun.api_key'))
                 ->setEndpoint($config->get('mailgun.api.endpoint'));
             $mg = new MailgunApi($httpClientConfigurator);
 
@@ -60,7 +60,7 @@ class MailgunServiceProvider extends ServiceProvider
             $clientAdapter = $this->app->make('mailgun.client');
             $httpClientConfigurator = (new HttpClientConfigurator())
                 ->setHttpClient($clientAdapter)
-                ->setApiKey($config->get('mailgun.public_api_key'))
+                ->setApiKey($config->get('mailgun.api_key'))
                 ->setEndpoint($config->get('mailgun.api.endpoint'));
             $mg = new MailgunApi($httpClientConfigurator);
 
