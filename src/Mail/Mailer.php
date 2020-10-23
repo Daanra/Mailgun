@@ -64,7 +64,7 @@ class Mailer
         $message = $this->message->getMessage();
 
         $domain = $this->config->get('mailgun.domain');
-        $response = new Response($this->mailgun->messages()->send($domain, $message));
+        $response = $this->mailgun->messages()->send($domain, $message);
 
         return $response;
     }
