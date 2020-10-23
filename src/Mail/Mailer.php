@@ -62,10 +62,9 @@ class Mailer
         $this->renderBody($view, $data);
 
         $message = $this->message->getMessage();
-        $files = $this->message->getFiles();
 
         $domain = $this->config->get('mailgun.domain');
-        $response = new Response($this->mailgun->post("{$domain}/messages", $message, $files));
+        $response = new Response($this->mailgun->messages()->send($domain, $message));
 
         return $response;
     }
