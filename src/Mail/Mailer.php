@@ -64,6 +64,9 @@ class Mailer
         $message = $this->message->getMessage();
 
         $domain = $this->config->get('mailgun.domain');
+        foreach ($message['inline'] ?? [] as $index => $image) {
+            $message['inline'][$index]['filePath'] = storage_path('app/public/' . Str::after($image['filePath'], 'storage/'));
+        }
         $response = $this->mailgun->messages()->send($domain, $message);
 
         return $response;
