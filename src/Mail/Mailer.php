@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Closure;
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Contracts\View\Factory as View;
+use Illuminate\Support\Str;
 use Mailgun\Mailgun;
 
 class Mailer
